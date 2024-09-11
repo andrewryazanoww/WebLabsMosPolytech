@@ -1,3 +1,7 @@
+* {    margin : 10px;
+    padding : 10px;
+    box-sizing: border-box;
+}
 a {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
@@ -24,28 +28,10 @@ p{
     font-size: 16px;
     color: black;
 }
-header {
-    margin : 10px;
-    padding : 10px;
-    box-sizing: border-box;
-}
 footer {
-    margin : 10px;
-    padding : 10px;
-    box-sizing: border-box;
     background-color: black;
     color: white;
     text-align: center;
-}
-main {
-    margin : 10px;
-    padding : 10px;
-    box-sizing: border-box;
-}
-nav {
-    margin-right: 10px ;
-    padding-right: 10px ;
-    box-sizing: border-box;
 }
 table, th, tr, td{
     padding: 10px;
