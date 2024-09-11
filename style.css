@@ -1,0 +1,73 @@
+a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: aqua;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+}
+img {
+    height: 512px;
+    width: 600px;
+}
+li {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+header {
+    margin : 10px;
+    padding : 10px;
+    box-sizing: border-box;
+}
+footer {
+    margin : 10px;
+    padding : 10px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+main {
+    margin : 10px;
+    padding : 10px;
+    box-sizing: border-box;
+}
+nav {
+    margin-right: 10px ;
+    padding-right: 10px ;
+    box-sizing: border-box;
+}
+table, th, tr, td{
+    padding: 10px;
+    border: 3px black solid;
+    border-collapse: collapse; 
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+footer p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+}
+footer a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+}
+nav a{
+    margin-right: 5px;
+}
