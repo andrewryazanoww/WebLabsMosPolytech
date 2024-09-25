@@ -1,0 +1,109 @@
+a:hover{
+    color: purple;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+footer p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+footer a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+nav a{
+    margin-right: 5px;
+}
+h1 {
+    margin-left :30px;
+}
+* { margin : 10px;
+    padding : 10px;
+    box-sizing: border-box;
+}
+a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+.position {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+}
+.dish {
+    display:flex;
+    flex-direction: column;
+    padding: 30px 40px 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background-color: #ffffff;
+}
+.dish:hover{
+    border:2px solid;
+    border-color: tomato;
+}
+img{
+    width: 300px;
+    height: 290px;
+    border-radius: 35px;
+}
+button {
+    background: none;
+    padding: 10px 30px 10px 30px;
+    border: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: black;
+}
+button:hover {
+    background-color: #f1eee9;
+    padding: 10px 30px 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.info {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: black;
+    margin-top: 0;
+    padding-top: 0;
+}
+.weight {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    color: darkgray;
+    margin-bottom: 5px;
+}
+.active {
+    color: purple;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+@media (max-width: 800px) {
+    .position {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .position {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    h2 {
+        text-align: center;
+    }
+}
