@@ -1,0 +1,118 @@
+a:hover{
+    color: purple;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+footer p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+footer a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+nav a{
+    margin-right: 5px;
+}
+h1 {
+    margin-left :30px;
+}
+* { margin : 10px;
+    padding : 10px;
+    box-sizing: border-box;
+}
+a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+.firstdishes {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3);
+    gap: 20x;
+}
+.soup {
+    display:flex;
+    flex-direction: column;
+    padding: 30px 40px 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background-color: #ffffff;
+}
+.soup:hover{
+    border:2px solid;
+    border-color: tomato;
+}
+img{
+    width: 325px;
+    height: 300px;
+}
+button{
+    background-color: #f1eee9;
+    padding: 10px 30px 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.Main_dish {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3);
+    gap: 20x;
+}
+.MD {
+    display:flex;
+    flex-direction: column;
+    padding: 30px 40px 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background-color: #ffffff;
+}
+.MD:hover{
+    border:2px solid;
+    border-color: tomato
+}
+.Main_Dish {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3);
+    gap: 20x;
+}
+.Drinks {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3);
+    gap: 20x;
+}
+.drink {
+    display:flex;
+    flex-direction: column;
+    padding: 30px 40px 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background-color: #ffffff;
+}
+.drink:hover{
+    border:2px solid;
+    border-color: tomato
+}
+.Drinks {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3);
+    gap: 20x;
+}
