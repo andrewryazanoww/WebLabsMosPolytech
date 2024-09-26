@@ -15,8 +15,8 @@ a:hover{
     text-decoration: none;
 }
 img {
-    height: 512px;
-    width: 600px;
+    height: auto;
+    width: 512px;
 }
 li {
     font-family: "Open Sans", sans-serif;
