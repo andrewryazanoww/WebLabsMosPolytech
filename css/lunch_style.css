@@ -8,6 +8,12 @@ footer {
     background-color: black;
     color: white;
     text-align: center;
+    display: block;
+    position: absolute;
+    left:0;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
 }
 footer p {
     font-family: "Open Sans", sans-serif;
