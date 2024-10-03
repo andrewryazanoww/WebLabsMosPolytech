@@ -112,3 +112,109 @@ button:hover {
         text-align: center;
     }
 }
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.form-title {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    color: black;
+}
+
+.form-inner {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.order-block, .customer-block {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 15px;
+}
+
+label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: black;
+    display: block;
+    margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: tomato;
+    color: white;
+    cursor: pointer;
+}
+
+button[type="reset"] {
+    background-color: #ccc;
+}
+
+button:hover {
+    background-color: #ff6347;
+}
+
+.address-note, .delivery-note {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: darkgray;
+    font-style: italic;
+    margin-top: -10px;
+}
+
+.radio-label {
+    display: block;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
