@@ -1,6 +1,22 @@
+* {
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
 a:hover {
     color: tomato;
-    font-family: "Open Sans", sans-serif;
     font-size: 20px;
     text-decoration: none;
 }
@@ -37,19 +53,6 @@ nav a {
 
 h1 {
     margin-left: 30px;
-}
-
-* {
-    margin: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-a {
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    color: black;
-    text-decoration: none;
 }
 
 .position {
@@ -142,23 +145,15 @@ button:hover {
     border-radius: 10px;
 }
 
-.form-title {
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
-    font-size: 24px;
-    color: black;
-}
-
 .form-inner {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
+    display: flex; /* Используем flexbox для разделения на две части */
+    gap: 30px; /* Пробел между двумя частями */
 }
 
 .order-block,
 .customer-block {
-    flex: 1;
-    min-width: 300px;
+    flex: 1; /* Обе части займут равное пространство */
+    min-width: 300px; /* Минимальная ширина для мобильных устройств */
     padding: 20px;
     border-radius: 10px;
     background-color: transparent;
