@@ -1,85 +1,100 @@
-a:hover{
+a:hover {
     color: tomato;
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     text-decoration: none;
 }
+
 footer {
     background-color: black;
     color: white;
     text-align: center;
     display: block;
     position: absolute;
-    left:0;
+    left: 0;
     width: 100%;
     margin-left: 0;
     padding-left: 0;
 }
+
 footer p {
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     color: white;
     text-align: center;
 }
+
 footer a {
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     color: white;
     text-align: center;
 }
-nav a{
+
+nav a {
     margin-right: 5px;
 }
+
 h1 {
-    margin-left :30px;
+    margin-left: 30px;
 }
-* { margin : 10px;
-    padding : 10px;
+
+* {
+    margin: 10px;
+    padding: 10px;
     box-sizing: border-box;
 }
+
 a {
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     color: black;
     text-decoration: none;
 }
+
 .position {
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
+
 .dish {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    padding: 30px 40px 30px 40px;
+    padding: 30px 40px;
     border-radius: 35px;
     cursor: pointer;
     filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
     background-color: #ffffff;
 }
-.dish:hover{
-    border:2px solid;
+
+.dish:hover {
+    border: 2px solid;
     border-color: tomato;
 }
-img{
-    width: 300px;
-    height: 290px;
+
+img {
+    width: 100%;
+    height: 100%;
     border-radius: 35px;
 }
+
 button {
     background: none;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 30px;
     border: none;
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     color: black;
 }
+
 button:hover {
     background-color: tomato;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 30px;
     border-radius: 10px;
     cursor: pointer;
 }
+
 .info {
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
@@ -87,31 +102,37 @@ button:hover {
     margin-top: 0;
     padding-top: 0;
 }
+
 .weight {
     font-family: "Open Sans", sans-serif;
     font-size: 18px;
     color: darkgray;
     margin-bottom: 5px;
 }
+
 .active {
     color: tomato;
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     text-decoration: none;
 }
+
 @media (max-width: 800px) {
     .position {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 @media (max-width: 600px) {
     .position {
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
     }
+    
     h2 {
         text-align: center;
     }
 }
+
 .form-container {
     display: flex;
     flex-direction: column;
@@ -134,7 +155,8 @@ button:hover {
     flex-wrap: wrap;
 }
 
-.order-block, .customer-block {
+.order-block,
+.customer-block {
     flex: 1;
     min-width: 300px;
     padding: 20px;
@@ -198,7 +220,8 @@ button:hover {
     background-color: #ff6347;
 }
 
-.address-note, .delivery-note {
+.address-note,
+.delivery-note {
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     color: darkgray;
@@ -218,4 +241,27 @@ button:hover {
     display: flex;
     justify-content: center;
     gap: 20px;
+}
+
+.dish.selected {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dish.selected button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.total-price {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.order-block {
+    margin-bottom: 20px;
 }
