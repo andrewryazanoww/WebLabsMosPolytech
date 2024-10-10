@@ -2,16 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const soupSection = document.querySelector('section:nth-of-type(1) .position');
     const mainSection = document.querySelector('section:nth-of-type(2) .position');
     const drinkSection = document.querySelector('section:nth-of-type(3) .position');
-    
-    const soupSelect = document.getElementById('soup');
-    const mainDishSelect = document.getElementById('main-dish');
-    const drinkSelect = document.getElementById('drink');
-
-    let selectedDishes = {
-        soup: null,
-        main: null,
-        drink: null
-    };
+    const orderContainer = document.querySelector('.order');
 
     const sortedDishes = {
         soup: dishes.filter(dish => dish.category === 'soup').sort((a, b) => a.name.localeCompare(b.name)),
@@ -31,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="weight">${dish.count}</p>
             <button type="button">Добавить</button>
         `;
-
         return dishDiv;
     }
 
@@ -45,37 +35,44 @@ document.addEventListener('DOMContentLoaded', function() {
         sortedDishes.drink.forEach(dish => drinkSection.appendChild(createDishCard(dish)));
     }
 
+    displayDishes();
+
+    const selectedDishes = {
+        soup: null,
+        main: null,
+        drink: null
+    };
+
     function updateOrder() {
-        soupSelect.value = selectedDishes.soup ? selectedDishes.soup.keyword : '';
-        mainDishSelect.value = selectedDishes.main ? selectedDishes.main.keyword : '';
-        drinkSelect.value = selectedDishes.drink ? selectedDishes.drink.keyword : '';
+        const orderText = [];
+        let totalPrice = 0;
 
-        const totalPrice = Object.values(selectedDishes)
-            .filter(dish => dish !== null)
-            .reduce((sum, dish) => sum + dish.price, 0);
-
-        const totalPriceElement = document.querySelector('.total-price');
-        if (totalPrice > 0) {
-            if (!totalPriceElement) {
-                const priceDiv = document.createElement('div');
-                priceDiv.className = 'total-price';
-                priceDiv.textContent = `Стоимость заказа: ${totalPrice}₽`;
-                document.querySelector('.order-block').appendChild(priceDiv);
-            } else {
-                totalPriceElement.textContent = `Стоимость заказа: ${totalPrice}₽`;
-            }
-        } else if (totalPriceElement) {
-            totalPriceElement.remove();
+        if (selectedDishes.soup) {
+            orderText.push(`Суп<br>${selectedDishes.soup.name} ${selectedDishes.soup.price}₽`);
+            totalPrice += selectedDishes.soup.price;
+        } else {
+            orderText.push('Суп<br>Блюдо не выбрано');
         }
-    }
 
-    function resetDishSelection(category) {
-        document.querySelectorAll(`section:nth-of-type(${category}) .dish`).forEach(card => {
-            card.classList.remove('selected');
-            const button = card.querySelector('button');
-            button.style.backgroundColor = '';
-            button.style.color = '';
-        });
+        if (selectedDishes.main) {
+            orderText.push(`Главное блюдо<br>${selectedDishes.main.name} ${selectedDishes.main.price}₽`);
+            totalPrice += selectedDishes.main.price;
+        } else {
+            orderText.push('Главное блюдо<br>Блюдо не выбрано');
+        }
+
+        if (selectedDishes.drink) {
+            orderText.push(`Напиток<br>${selectedDishes.drink.name} ${selectedDishes.drink.price}₽`);
+            totalPrice += selectedDishes.drink.price;
+        } else {
+            orderText.push('Напиток<br>Напиток не выбран');
+        }
+
+        if (!selectedDishes.soup && !selectedDishes.main && !selectedDishes.drink) {
+            orderContainer.innerHTML = '<p>Ничего не выбрано</p>';
+        } else {
+            orderContainer.innerHTML = `<p>${orderText.join('<br><br>')}</p><p>Стоимость заказа: ${totalPrice}₽</p>`;
+        }
     }
 
     document.addEventListener('click', function(event) {
@@ -85,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const keyword = dishCard.dataset.dish;
             const dish = dishes.find(d => d.keyword === keyword);
-            
             if (!dish) return;
 
             const categoryIndex = dish.category === 'soup' ? 1 : dish.category === 'main' ? 2 : 3;
@@ -101,5 +97,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    displayDishes();
+    function resetDishSelection(categoryIndex) {
+        if (categoryIndex === 1) {
+            selectedDishes.soup = null;
+        } else if (categoryIndex === 2) {
+            selectedDishes.main = null;
+        } else if (categoryIndex === 3) {
+            selectedDishes.drink = null;
+        }
+
+        const selectedButtons = document.querySelectorAll('.dish.selected');
+        selectedButtons.forEach(button => {
+            button.classList.remove('selected');
+            const innerButton = button.querySelector('button');
+            innerButton.style.backgroundColor = '';
+            innerButton.style.color = '';
+        });
+    }
 });

@@ -22,158 +22,68 @@
     <main>
         <section>
             <h2>Выберите суп</h2>
-            <div class="position">
-                <div class="dish">
-                    <img src="images/borsh.jpg" alt="Борщ">
-                    <p class="info">Борщ</p>
-                    <p class="info">195Р</p>
-                    <p class="weight">500г</p>
-                    <button>Добавить</button> 
-                </div>
-                <div class="dish">
-                    <img src="images/tom_yam.jpeg" alt="Том Ям">
-                    <p class="info">Том ям</p>
-                    <p class="info">250Р</p>
-                    <p class="weight">450г</p>
-                    <button>Добавить</button> 
-                </div>
-                <div class="dish">
-                    <img src="images/cream_soup.jpg" alt="Крем-суп">
-                    <p class="info">Крем-суп</p>
-                    <p class="info">270Р</p>
-                    <p class="weight">550г</p>
-                    <button>Добавить</button> 
-                </div>
-            </div>
+            <div class="position" id="soup-section"></div>
         </section>
         <section>
             <h2>Выберите главное блюдо</h2>
-            <div class="position">
-                <div class="dish">
-                    <img src="images/hinkali.jpg" alt="Хинкали">
-                    <p class="info">Хинкали</p>
-                    <p class="info">500Р</p>
-                    <p class="weight">6шт(60г)</p>
-                    <button>Добавить</button> 
-                </div>
-                <div class="dish">
-                    <img src="images/lasanya.jpg" alt="Лазанья">
-                    <p class="info">Лазанья</p>
-                    <p class="info">350Р</p>
-                    <p class="weight">250г</p>
-                    <button>Добавить</button> 
-                </div>
-                <div class="dish">
-                    <img src="images/bolonyese.jpeg" alt="Паста-Болоньезе">
-                    <p class="info">Паста-Болоньезе</p>
-                    <p class="info">400Р</p>
-                    <p class="weight">300г</p>
-                    <button>Добавить</button> 
-                </div>
-            </div>
+            <div class="position" id="main-section"></div>
         </section>
         <section>
             <h2>Выберите напиток</h2>
-            <div class="position">
-                <div class="dish">
-                    <img src="images/coca-cola.png" alt="Coca-Cola">
-                    <p class="info">Coca-Cola</p>
-                    <p class="info">90Р</p>
-                    <p class="weight">330 Мл</p>
-                    <button>Добавить</button> 
-                </div>
-                <div class="dish">
-                    <img src="images/orange juice.jpg" alt="Апельсиновый сок">
-                    <p class="info">Апельсиновый сок</p>
-                    <p class="info">100Р</p>
-                    <p class="weight">400 Мл</p>
-                    <button>Добавить</button> 
-                </div>
-                <div class="dish">
-                    <img src="images/kapuchino.jpg" alt="Капучино">
-                    <p class="info">Капучино</p>
-                    <p class="info">150</p>
-                    <p class="weight">500 Мл</p>
-                    <button>Добавить</button> 
-                </div>
-            </div>
+            <div class="position" id="drink-section"></div>
         </section>
         <section>
             <div class="form-container">
                 <h2 class="form-title">Собрать заказ</h2>
-                <form action="https://httpbin.org/post" method="POST">
-                    <div class="form-inner">
-                        <div class="order-block">
-                            <h3>Ваш заказ</h3>
-                            <label for="soup">Суп</label>
-                            <select id="soup" name="soup" required>
-                                <option value="">-- Выберите суп --</option>
-                                <option value="borsch">Борщ</option>
-                                <option value="tom_yam">Том Ям</option>
-                                <option value="cream_soup">Крем-суп</option>
-                            </select>
-            
-                            <label for="main-dish">Главное блюдо</label>
-                            <select id="main-dish" name="main-dish" required>
-                                <option value="">-- Выберите главное блюдо --</option>
-                                <option value="hinkali">Хинкали</option>
-                                <option value="lasagna">Лазанья</option>
-                                <option value="pasta">Паста Болоньезе</option>
-                            </select>
-            
-                            <label for="drink">Напиток</label>
-                            <select id="drink" name="drink" required>
-                                <option value="">-- Выберите напиток --</option>
-                                <option value="coca_cola">Coca-Cola</option>
-                                <option value="orange_juice">Апельсиновый сок</option>
-                                <option value="cappuccino">Капучино</option>
-                            </select>
-            
-                            <label for="comments">Комментарии к заказу</label>
-                            <textarea id="comments" name="comments" rows="4"></textarea>
-                        </div>
-            
-                        <div class="customer-block">
-                            <h3>Ваши данные</h3>
-                            <label for="name">Имя</label>
-                            <input type="text" id="name" name="name" required>
-            
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-            
-                            <label class="radio-label" for="subscribe">
-                                <input type="checkbox" id="subscribe" name="subscribe" checked>
-                                Подписка на рассылку
-                            </label>                        
-            
-                            <label for="phone">Номер телефона</label>
-                            <input type="tel" id="phone" name="phone" required>
-            
-                            <label for="address">Адрес доставки</label>
-                            <input type="text" id="address" name="address" required>
-                            <p class="address-note">Доставка осуществляется только по Москве</p>
-            
-                            <label for="delivery-time-choice">Время доставки:</label>
-                            <label class="radio-label">
-                                <input type="radio" id="as-soon-as-possible" name="delivery-time-choice" value="asap" required>
-                                Как можно скорее
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" id="specific-time" name="delivery-time-choice" value="specific">
-                                К указанному времени
-                            </label>
-            
-                            <label for="delivery-time">Укажите время доставки:</label>
-                            <input type="time" id="delivery-time" name="delivery-time" min="07:00" max="23:00" step="300" required>
-                            <p class="delivery-note">Доступное время доставки с 7.00 до 23.00</p>
-                        </div>
+                <div class="order-block">
+                    <h3>Ваш заказ</h3>
+                    <div class="order">
+                        <p>Ничего не выбрано</p>
                     </div>
-            
-                    <div class="button-container">
-                        <button type="reset">Сбросить</button>
-                        <button type="submit">Отправить</button>
-                    </div>
-                </form>
+                    <label for="comments">Комментарии к заказу</label>
+                        <textarea id="comments" name="comments" rows="4"></textarea>
+                </div>
+                <div class="customer-block">
+                    <h3>Ваши данные</h3>
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" name="name" required>
+    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+    
+                    <label class="radio-label" for="subscribe">
+                        <input type="checkbox" id="subscribe" name="subscribe" checked>
+                        Подписка на рассылку
+                    </label>                        
+    
+                    <label for="phone">Номер телефона</label>
+                    <input type="tel" id="phone" name="phone" required>
+    
+                    <label for="address">Адрес доставки</label>
+                    <input type="text" id="address" name="address" required>
+                    <p class="address-note">Доставка осуществляется только по Москве</p>
+    
+                    <label for="delivery-time-choice">Время доставки:</label>
+                    <label class="radio-label">
+                        <input type="radio" id="as-soon-as-possible" name="delivery-time-choice" value="asap" required>
+                        Как можно скорее
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" id="specific-time" name="delivery-time-choice" value="specific">
+                        К указанному времени
+                    </label>
+    
+                    <label for="delivery-time">Укажите время доставки:</label>
+                    <input type="time" id="delivery-time" name="delivery-time" min="07:00" max="23:00" step="300" required>
+                    <p class="delivery-note">Доступное время доставки с 7.00 до 23.00</p>
+                </div>
+            </div>
+    
+            <div class="button-container">
+                <button type="reset">Сбросить</button>
+                <button type="submit">Отправить</button>
+            </div>
+            </form>       
             </div>                         
         </section>       
     </main>
@@ -184,3 +94,4 @@
     <script src="dishes-data.js"></script>
     <script src="order-system.js"></script>
 </body>
+</html>

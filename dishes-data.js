@@ -48,7 +48,7 @@ const dishes = [
         image: 'images/bolonyese.jpeg'
     },
     {
-        keyword: 'cola',
+        keyword: 'Coca-Cola',
         name: 'Coca-Cola',
         price: 90,
         category: 'drink',
