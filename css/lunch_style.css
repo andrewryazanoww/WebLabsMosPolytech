@@ -260,3 +260,8 @@ button:hover {
 .order-block {
     margin-bottom: 20px;
 }
+img {
+    width: 300px; /* Фиксированная ширина */
+    height: 300px; /* Фиксированная высота */
+    object-fit: cover; /* Обрезает изображение, чтобы оно заполнило контейнер */
+}
