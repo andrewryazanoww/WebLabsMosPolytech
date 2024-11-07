@@ -48,16 +48,23 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             const filterLink = event.target.closest('a');
             if (!filterLink) return;
-
+    
             const filter = filterLink.dataset.kind;
             const sectionType = filterContainer.closest('section').querySelector('.position').id.split('-')[0];
-
-            // Применяем фильтр только к выбранной секции
-            displayDishes(sectionType, filter);
-
-            // Обновляем стили активного фильтра
-            filterContainer.querySelectorAll('a').forEach(link => link.classList.remove('active'));
-            filterLink.classList.add('active');
+    
+            // Проверяем, активен ли фильтр
+            if (filterLink.classList.contains('active')) {
+                // Если активен, сбрасываем фильтр и показываем все блюда
+                displayDishes(sectionType);
+                filterLink.classList.remove('active');
+            } else {
+                // Применяем фильтр только к выбранной секции
+                displayDishes(sectionType, filter);
+    
+                // Обновляем стили активного фильтра
+                filterContainer.querySelectorAll('a').forEach(link => link.classList.remove('active'));
+                filterLink.classList.add('active');
+            }
         });
     });
 

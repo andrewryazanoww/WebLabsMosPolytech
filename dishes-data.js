@@ -64,6 +64,15 @@ const dishes = [
         kind: 'meat'
     },
     {
+        keyword: 'carrot_cutlets',
+        name: 'Морковные котлеты',
+        price: 450,
+        category: 'main',
+        count: '250г',
+        image: 'images/main/7.jpg',
+        kind: 'veg'
+    },
+    {
         keyword: 'fish_fillet',
         name: 'Рыбное филе',
         price: 450,
@@ -72,6 +81,13 @@ const dishes = [
         image: 'images/main/2.jpeg',
         kind: 'fish'
     },
+    {keyword: 'fish_cutlets',
+        name: 'Рыбные котлеты',
+        price: 400,
+        category: 'main',
+        count: '300г',
+        image: 'images/main/8.jpg',
+        kind: 'fish'},
     {
         keyword: 'carbonara',
         name: 'Паста Карбонара',
@@ -118,6 +134,15 @@ const dishes = [
         count: '200г',
         image: 'images/starters/1.jpeg',
         kind: 'meat'
+    },
+    {
+        keyword: 'mushrooms_salad',
+        name: 'Грибной салат',
+        price: 300,
+        category: 'starter',
+        count: '300г',
+        image: 'images/starters/7.jpg',
+        kind: 'veg'
     },
     {
         keyword: 'greek_salad',
@@ -230,12 +255,30 @@ const dishes = [
         kind: 'small'
     },
     {
+        keyword: 'chocolate_dubai',
+        name: 'Дубайский шоколад',
+        price: 470,
+        category: 'dessert',
+        count: '100г',
+        image: 'images/desserts/4.jpg',
+        kind: 'small'
+    },
+    {
         keyword: 'donuts_medium',
         name: 'Пончики маленькие',
         price: 410,
         category: 'dessert',
         count: '350г',
         image: 'images/desserts/2.jpeg',
+        kind: 'medium'
+    },
+    {
+        keyword: 'Viennese_waffles',
+        name: 'Венские вафли с мороженным',
+        price: 510,
+        category: 'dessert',
+        count: '450г',
+        image: 'images/desserts/5.jpg',
         kind: 'medium'
     },
     {
@@ -246,5 +289,15 @@ const dishes = [
         count: '700г',
         image: 'images/desserts/3.jpeg',
         kind: 'large'
+    }
+    ,
+    {
+        keyword: 'eclair',
+        name: 'Эклер',
+        price: 310,
+        category: 'dessert',
+        count: '150г',
+        image: 'images/desserts/6.jpg',
+        kind: 'small'
     }
 ];
