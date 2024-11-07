@@ -275,7 +275,7 @@ const dishes = [
     {
         keyword: 'Viennese_waffles',
         name: 'Венские вафли с мороженным',
-        price: 510,
+        price: 610,
         category: 'dessert',
         count: '450г',
         image: 'images/desserts/5.jpg',
