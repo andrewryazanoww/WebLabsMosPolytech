@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const filter = filterLink.dataset.kind;
             const sectionType = filterContainer.closest('section').querySelector('.position').id.split('-')[0];
     
-            // Проверяем,. активен ли фильтр
+            // Проверяем, активен ли фильтр
             if (filterLink.classList.contains('active')) {
                 // Если активен, сбрасываем фильтр и показываем все блюда
                 displayDishes(sectionType);
