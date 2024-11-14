@@ -6,36 +6,44 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodLand</title>
 </head>
+
 <body>
     <header>
-        <h1>FoodLand</h1>
-        <nav>
-            <a href="" class="active">О нас</a>
-            <a href="">Меню</a>
-            <a href="lunch.html">Собрать ланч</a>
-            <a href="#Telephone">Контакты</a>
-        </nav>
+        <section id="choose" class="fast_travel">
+             <h1>FoodLand</h1>
+             <nav>
+                 <h3>
+                 <a href='#about_us' id="active">О нас</a>
+                 <a href='lunchmake/lunch.html'>Собрать ланч</a>
+                 <a href='#'>Меню</a>
+                 <a href='#contacts'>Контакты</a>
+                 </h3>
+             </nav>
+        </section>
     </header>
+
     <main>
-        <section>
-            <img src="images/food.jpg" alt="Фото еды ресторана">  
+        <section id="about_us">
+            <img src="images/food.jpg" alt="Еда в столовой" class="food">
             <h2>О нас</h2>
             <p>FoodLand - это современная доставка вкуснейшей еды по Москве и МО по доступным ценам</p>
         </section>
-        <section>
+
+        <section id="why_better">
             <h2>Преимущества или что в нас особенного?</h2>
             <ul>
+                <li>Быстрая доставка</li>
                 <li>Свежие продукты и высококачественные повары</li>
                 <li>Разнообразие блюд и напитков</li>
-                <li>Быстрая доставка</li>
             </ul>
         </section>
-        <section>
+
+        <section id="prices">
             <h2>Самые популярные блюда у нас</h2>
             <table>
                 <tr>
@@ -77,9 +85,11 @@
             </table>
         </section>
     </main>
-    <footer id="Telephone"> 
-        <p>Позвонить нам</p>
-        <a href="">+7(900)-000-00-00</a>
+    <footer>
+        <section id="contacts" class="contacts">
+            <p>Позвонить нам <a href="tel:+79999999999">+7-999-999-99-99</a></p>
+        </section>
     </footer>
 </body>
+
 </html>

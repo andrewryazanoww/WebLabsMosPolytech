@@ -1,100 +1,119 @@
-* { margin : 10px;
-    padding : 10px;
+/* Универсальный селектор: сброс всех отступов и базовая настройка шрифта */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* Шрифт Montserrat */
 }
-a {
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    color: black;
-    text-decoration: none;
+
+/* Стили для основных секций: хедер, мейн и футер */
+header, main {
+    padding: 30px;
+    width: 100%;
 }
-a:hover{
-    color: tomato;
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    text-decoration: none;
-}
-img {
-    height: auto;
-    width: 512px;
-}
-li {
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    color: black;
-}
-p{
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    color: black;
-}
+
 footer {
+    padding: 20px 0;
     background-color: black;
     color: white;
     text-align: center;
-    display: block;
-    position: absolute;
-    left:0;
-    width: 100%;
-    margin-left: 0;
-    padding-left: 0;
 }
-table, th, tr, td{
-    padding: 10px;
-    border: 3px black solid;
-    border-collapse: collapse; 
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
+
+/* Стили для параграфов */
+p {
+    font-family: 'Montserrat', sans-serif; /* Шрифт Montserrat */
+    font-size: 12pt;
     color: black;
 }
-footer p {
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    color: white;
+
+/* Таблицы: стили для ячеек, заголовков и таблицы в целом */
+table, th, tr, td {
+    padding: 10px;
+    border: 2px solid black;
+    border-collapse: collapse;
     text-align: center;
 }
-footer a {
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    color: white;
-    text-align: center;
+
+/* Быстрая навигация: стили ссылок */
+.fast_travel a {
+    text-decoration: none;
+    font-size: 12pt;
+    color: black;
+    background-color: white;
 }
-nav a{
-    margin-right: 5px;
+
+/* Навигация: стили заголовка и ссылок */
+nav h3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
 }
-h1 {
-    margin-left :30px;
+
+nav a {
+    margin: 0 auto;
+    transition: color 0.3s;
 }
-.active {
+
+nav a:hover {
+    color: #ff6348;
+}
+
+/* Активная ссылка */
+#active {
     color: tomato;
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
+}
+
+/* Стили для изображений в разделе "О нас" */
+.food {
+    width: 512px;
+    height: auto;
+}
+
+/* Контакты: стили для текста и ссылок */
+.contacts p, a {
+    background-color: black;
+    color: white;
+    height: 50px;
+    padding-top: 10px;
+    text-align: center;
     text-decoration: none;
 }
+
+/* Медиазапросы: адаптация стилей для разных экранов */
+
+/* Для экранов ≤800px */
 @media (max-width: 800px) {
-    img {
-        width:500px;
+    .food {
+        width: 500px;
     }
 }
+
+/* Для экранов ≤600px */
 @media (max-width: 600px) {
-    img {
-        width:100%;
-    }
-    table {
-        font-size: calc(100% - 2px);
-    }
     h1 {
         text-align: center;
     }
-    a {
-        font-size: 22px; 
-    }
-    nav {
+
+    nav h3 {
         flex-direction: column;
         align-items: center;
     }
+
+    nav a {
+        font-size: 16pt;
+    }
+
+    .food {
+        width: 100%;
+    }
+
+    table {
+        font-size: calc(100% - 2px);
+    }
 }
+
+/* Для экранов ≤400px */
 @media (max-width: 400px) {
     table {
         font-size: calc(100% - 4px);

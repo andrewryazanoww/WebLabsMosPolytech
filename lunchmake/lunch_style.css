@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header, main, footer {
+    margin: 0;
+    padding: 30px;
+    width: 100%;
+}
+
+header {
+    padding-bottom: 50px; /* Увеличен отступ снизу */
+}
+
+main {
+    padding-top: 50px; /* Увеличен отступ сверху */
+    padding-bottom: 50px; /* Увеличен отступ снизу */
+}
+
+footer {
+    padding-top: 40px; /* Увеличен отступ сверху */
+    padding-bottom: 40px; /* Увеличен отступ снизу */
+    background-color: #000; /* Черный цвет фона */
+    color: white;
+    text-align: center;
+}
+
+table, th, tr, td {
+    padding: 10px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.fast_travel a {
+    text-decoration: none;
+    font-size: 12pt;
+    color: black;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.fast_travel a:hover {
+    background-color: #ff6348;
+    color: white;
+}
+
+nav h3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px; /* Добавлен отступ снизу */
+}
+
+nav a {
+    margin-left: 0;
+}
+
+nav a:hover {
+    color: #ff6348;
+}
+
+#active {
+    color: tomato;
+}
+
+.dishes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 40px; /* Добавлен отступ снизу */
+}
+
+.dish {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    transition: transform 0.3s, border 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dish:hover {
+    transform: translateY(-5px);
+    border: 2px solid tomato;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.dish img {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.dish p:nth-child(2) {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.dish p:nth-child(3) {
+    font-size: 20px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.dish p:nth-child(4) {
+    color: gray;
+}
+
+.dish button {
+    width: 100%;
+    padding: 12px 0;
+    margin-top: 15px;
+    background-color: #f1eee9;
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dish button:hover {
+    background-color: tomato;
+    color: white;
+}
+
+@media (max-width: 800px) {
+    .dishes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .dishes {
+        grid-template-columns: 1fr;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+}
+
+.contacts p, a {
+    background-color: black;
+    color: white;
+    height: 50px;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    margin-bottom: 40px; /* Добавлен отступ снизу */
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 19px 20px rgba(0, 0, 0, 0.2);
+}
+
+.order-form h2 {
+    text-align: center;
+}
+
+.order-form h3 {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6348;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e5533b;
+}
+
+button[type="reset"] {
+    background-color: #ccc;
+}
+
+button[type="reset"]:hover {
+    background-color: #b3b3b3;
+}
+
+.client-section input[type="checkbox"],
+.client-section input[type="radio"] {
+    margin-right: 5px;
+    margin-top: 25px;
+    width: 20px;
+}
+
+@media (max-width: 600px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
+
+.delivery-note {
+    font-size: 14px;
+    margin-top: -10px;
+    color: #a19898;
+}
+
+.time_delivery {
+    margin-top: 10px;
+}
+
+.bold-text {
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.comment_from_java {
+    margin-top: 10px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: #ff6348;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: rgba(255, 99, 72, 0.2);
+    color: #fff;
+}
+
+.filter-btn.active {
+    background-color: rgba(255, 99, 72, 0.6);
+    color: #fff;
+    border-color: rgba(255, 99, 72, 0.6);
+}
+
+.filters {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Контейнер для всех вариантов ланчей */
+.lunch-options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+    margin-bottom: 50px; /* Добавлен отступ снизу */
+}
+
+.lunch-option {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.lunch-text {
+    text-align: center;
+}
+
+.dish-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Для иконок, которые находятся внутри элементов с классом .dish-option */
+.dish-option img {
+    width: 60px; /* Уменьшаем размер */
+    height: 60px; /* Уменьшаем размер */
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.dish-option img:hover {
+    transform: scale(1.1); /* Уменьшаем увеличение при наведении */
+}
+
+
+.dish-option p {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.dessert-info p {
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+
+#notification-text {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    white-space: pre-line;
+}
+
+#notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    color: white;
+    text-align: center;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+#notification.hidden {
+    display: none;
+}
+
+#notification-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e5533b;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#notification-button:hover {
+    background-color: tomato;
+}
