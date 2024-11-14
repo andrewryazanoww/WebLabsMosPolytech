@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             drink: null
         };
 
-        // Обновляем отображение заказа после сброса
+        // jjобновляем отображение заказа после сброса
         updateOrderDisplay();
     });
 });
