@@ -61,24 +61,38 @@ function checkOrder() {
     const hasDesert = order.desert !== null;
 
 
+    if (hasSoup && hasMainDish && hasSaladStarter && hasDrink) return true;
+    if (hasSoup && hasMainDish && hasDrink && !hasSaladStarter) return true;
+    if (hasSoup && hasSaladStarter && hasDrink && !hasMainDish) return true;
+    if (!hasSoup && hasMainDish && hasSaladStarter && hasDrink) return true;
+    if (!hasSoup && !hasSaladStarter && hasMainDish && hasDrink) return true;
+
     if (!hasSoup && !hasMainDish && !hasSaladStarter && !hasDrink && !hasDesert) {
         showNotification("Ничего не выбрано. Выберите блюда для заказа");
         return false;
-    } else if (hasSoup && !hasMainDish && !hasSaladStarter) {
-        showNotification("Выберите главное блюдо/салат/стартер");
+    } else if (hasSoup && !hasMainDish && !hasSaladStarter && !hasDrink) { // Только суп - ошибка
+        showNotification("Выберите главное блюдо/салат/стартер ");
         return false;
-    } else if ((hasSaladStarter && !hasSoup && !hasMainDish)|| (hasMainDish && !hasSoup) ) {
-        showNotification("Выберите суп или главное блюдо");
+    } else if (hasSaladStarter && !hasSoup && !hasMainDish && !hasDrink) { // Только салат/стартер - ошибка
+        showNotification("Выберите суп или главное блюдо ");
         return false;
-    } else if (!hasDrink && (hasSoup || hasMainDish || hasSaladStarter)) {
+    }else if (!hasDrink && (hasSoup || hasMainDish || hasSaladStarter)) {
         showNotification("Выберите напиток");
         return false;
-    } else if (!hasSoup && !hasMainDish && !hasSaladStarter && (hasDrink || hasDesert)) {
+    } else if (hasSoup && !(hasMainDish || hasSaladStarter)) { // Только суп - ошибка
+        showNotification("Выберите главное блюдо/салат/стартер");
+        return false;
+    }else if ((hasSaladStarter || hasMainDish) && !hasSoup && hasDrink) {
+        showNotification("Выберите суп");
+        return false;
+    }
+    else if ((hasDrink || hasDesert) && !hasMainDish && !(hasSoup && hasSaladStarter)) { //Напиток/Десерт без главного - ошибка
         showNotification("Выберите главное блюдо");
         return false;
     }
-
-    return true;
+    else {
+        return true;  // Заказ корректен
+    }
 }
 
 function showNotification(message) {
