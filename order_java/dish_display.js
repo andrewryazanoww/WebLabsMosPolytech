@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Функция для отображения загруженных блюд
     function displayDishes(dishes) {
         const soupSection = document.querySelector('#soups .dishes');
-        const mainDishSection = document.querySelector('#main_dishes .dishes');
+        const mainDishSection = document.querySelector('#main-course .dishes');
         const drinkSection = document.querySelector('#drinks .dishes');
-        const saladSection = document.querySelector('#salad_starter .dishes');
-        const desertSection = document.querySelector('#desert .dishes');
+        const saladSection = document.querySelector('#salad .dishes');
+        const desertSection = document.querySelector('#dessert .dishes');
 
         // Очищаем текущие блюда
         [soupSection, mainDishSection, drinkSection, saladSection, desertSection].forEach(section => section.innerHTML = '');
@@ -54,13 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
             // Добавляем в соответствующую секцию в зависимости от категории
             if (dish.category === 'soup') {
                 soupSection.appendChild(dishElement);
-            } else if (dish.category === 'main_dish') {
+            } else if (dish.category === 'main-course') {
                 mainDishSection.appendChild(dishElement);
             } else if (dish.category === 'drink') {
                 drinkSection.appendChild(dishElement);
-            } else if (dish.category === 'salad_starter') {
+            } else if (dish.category === 'salad') {
                 saladSection.appendChild(dishElement);
-            } else if (dish.category === 'desert') {
+            } else if (dish.category === 'dessert') {
                 desertSection.appendChild(dishElement);
             }
 
