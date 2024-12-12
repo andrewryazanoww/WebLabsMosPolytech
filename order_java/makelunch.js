@@ -1,13 +1,11 @@
-let sortedDishes = [];
-let selectedDishes = JSON.parse(localStorage.getItem("selectedDishes")) || [];
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const soupSection = document.querySelector('#soups .dishes');
     const mainDishSection = document.querySelector('#main_dishes .dishes');
     const drinkSection = document.querySelector('#drinks .dishes');
     const saladSection = document.querySelector('#salad_starter .dishes');
     const desertSection = document.querySelector('#desert .dishes');
-    const resetButton = document.getElementById('resetButton');
-    const apiUrl = 'https://edu.std-900.ist.mospolytech.ru/labs/api/dishes';
+    const apiUrl = 'https://edu.std-900.ist.mospolytech.ru/labs/api/dishes'; // Верный URL
+    let sortedDishes = [];
 
     try {
         const response = await fetch(apiUrl);
@@ -46,7 +44,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             dishElement.querySelector('button').addEventListener('click', () => {
                 addToOrder(dish);
-
                 // Сохраняем ID блюда в localStorage
                 let selectedDishes = JSON.parse(localStorage.getItem('selectedDishes')) || [];
                 if (!selectedDishes.includes(dish.id)) { // Используем dish.id
@@ -63,77 +60,57 @@ document.addEventListener("DOMContentLoaded", async () => {
                 console.log(JSON.parse(localStorage.getItem('selectedDishes')))
             });
         });
-
-        resetButton.addEventListener('click', () => {
-            order = {
-                soup: null,
-                "main-course": null, //здесь main_dish
-                salad: null, //здесь salad_starter
-                drink: null,
-                dessert: null //здесь desert
-            };
-            updateOrderDisplay();
-
+        // Восстановление состояния при загрузке страницы
+        updateOrderSummary();
+        checkOrderAvailability();
+        const selectedDishes = JSON.parse(localStorage.getItem('selectedDishes')) || [];
+        selectedDishes.forEach(dishId => {
+            const dish = sortedDishes.find(d => d.id === parseInt(dishId)); // или  +dishId
+            if (dish) {
+                totalPrice += dish.price;
+            }
         });
 
     } catch (error) {
         console.error("Ошибка при загрузке данных:", error);
     }
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    function updateOrderSummary() {
+        const selectedDishes = JSON.parse(localStorage.getItem('selectedDishes')) || [];
+        let totalPrice = 0;
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const kind = button.getAttribute('data-kind');
-            const section = button.closest('section');
-            const dishes  = section.querySelectorAll('.dish');
-
-            // Если кнопка уже активна, снимаем класс active и показываем все блюда
-            if (button.classList.contains('active')) {
-                button.classList.remove('active');
-                dishes.forEach(dish => dish.style.display = 'block'); // Показываем все блюда
-            } else {
-                // Убираем класс active у всех кнопок
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-
-                // Добавляем класс active к текущей кнопке
-                button.classList.add('active');
-
-                // Показать/скрыть блюда в зависимости от фильтра
-                dishes.forEach(dish => {
-                    if (dish.getAttribute('data-kind') === kind) {
-                        dish.style.display = 'block';
-                    } else {
-                        dish.style.display = 'none';
-                    }
-                });
+        selectedDishes.forEach(dishId => {
+            const dish = sortedDishes.find(d => d.id === parseInt(dishId)); // или  +dishId
+            if (dish) {
+                totalPrice += dish.price;
             }
         });
-    });
-});
 
 
-function checkOrderAvailability() {
-    const orderLink = document.getElementById('orderLink');
-    if (orderLink) { // Проверяем, существует ли элемент
-        if (checkOrder()) { // Вызываем checkOrder() из order.js
-            orderLink.classList.remove('disabled');
+        const orderSummary = document.getElementById('orderSummary');
+        if (selectedDishes.length > 0) {
+            orderSummary.innerHTML = `
+            <p>Общая стоимость: ${totalPrice}₽</p>
+            <a href="order.html" id="orderLink">Перейти к оформлению</a>
+        `;
+            orderSummary.style.display = 'block';
         } else {
-            orderLink.classList.add('disabled');
+            orderSummary.style.display = 'none';
+        }
+        checkOrderAvailability();
+        console.log("selectedDishes:", selectedDishes);
+        console.log("sortedDishes:", sortedDishes);
+        console.log("totalPrice:", totalPrice);
+    }
+
+    function checkOrderAvailability() {
+        const orderLink = document.getElementById('orderLink');
+        if (orderLink) { // Проверяем, существует ли элемент
+            if (checkOrder()) { // Вызываем checkOrder() из order.js
+                orderLink.classList.remove('disabled');
+            } else {
+                orderLink.classList.add('disabled');
+            }
         }
     }
-}
-window.addEventListener('load', () => {
-
-    // Восстанавливаем выбор блюд
-    const selectedDishes = JSON.parse(localStorage.getItem('selectedDishes')) || [];
-    selectedDishes.forEach(dishId => {
-        const dishElement = document.querySelector(`.dish[data-dish="${dishId}"]`);
-        if (dishElement) {
-            dishElement.classList.add('selected');
-            dishElement.querySelector('button').classList.add('selected');
-        }
-    });
 });

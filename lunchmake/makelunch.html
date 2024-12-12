@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="ru">
-
 <head>
-  <link rel="stylesheet" href="lunch_style.css">
+  <link rel="stylesheet" href="lunch.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src=../order_java/dish_display.js></script>
   <script src="../order_java/order.js"></script>
+  
+  <script src="../order_java/makelunch.js"></script>
   <title>FoodLand Menu</title>
 </head>
 
@@ -22,7 +21,8 @@
       <h3>
         <a href='../index.html'>О нас</a>
         <a href='#' id="active">Собрать ланч</a>
-        <a href='#'>Меню</a>
+        <a href='../lunchmake/order.html'>Текущий заказ</a>
+        <a href='../orders/orders_list.html'>Заказы</a>
         <a href='#contacts'>Контакты</a>
       </h3>
     </nav>
@@ -32,7 +32,7 @@
 <main>
     <!-- Блок с вариантами ланчей -->
     <section id="lunch-options">
-      <h2 class="lunch-text">Собери свой ланч</h2>
+      <h2 class="lunch-text">Выберите вариант ланча</h2>
 
       <!-- Grid-контейнер с вариантами ланчей -->
       <div class="lunch-options-grid">
@@ -48,8 +48,8 @@
             <p>Главное блюдо</p>
           </div>
           <div class="dish-option">
-            <img src="../images/lunch_choose/veg_dish.png" alt="Салат или стартер">
-            <p>Салат или стартер</p>
+            <img src="../images/lunch_choose/veg_dish.png" alt="Салат">
+            <p>Салат</p>
           </div>
           <div class="dish-option">
             <img src="../images/lunch_choose/drink_dish.png" alt="Напиток">
@@ -80,7 +80,7 @@
           </div>
           <div class="dish-option">
             <img src="../images/lunch_choose/veg_dish.png" alt="Салат">
-            <p>Салат или стартер</p>
+            <p>Салат</p>
           </div>
           <div class="dish-option">
             <img src="../images/lunch_choose/drink_dish.png" alt="Напиток">
@@ -95,7 +95,7 @@
           </div>
           <div class="dish-option">
             <img src="../images/lunch_choose/veg_dish.png" alt="Салат">
-            <p>Салат или стартер</p>
+            <p>Салат</p>
           </div>
           <div class="dish-option">
             <img src="../images/lunch_choose/drink_dish.png" alt="Напиток">
@@ -123,11 +123,8 @@
             </div>
           </div>
         </div>
-
       </div>
-
     </section>
-
 
   <!--Блок "супы"-->
   <section id="soups">
@@ -138,13 +135,11 @@
       <button class="filter-btn" data-kind="veg">Вегетарианские</button>
     </div>
     <div class="dishes">
-
-
     </div>
   </section>
 
   <!--Блок "главные блюда"-->
-  <section id="main-course">
+  <section id="main_dishes">
     <h2>Основные блюда</h2>
     <div class="filters">
       <button class="filter-btn" data-kind="fish">Рыбные</button>
@@ -152,11 +147,10 @@
       <button class="filter-btn" data-kind="veg">Вегетарианские</button>
     </div>
     <div class="dishes">
-
     </div>
   </section>
-  <section id="salad">
-    <h2>Салаты или стартеры</h2>
+  <section id="salad_starter">
+    <h2>Салат или стартер</h2>
     <div class="filters">
       <button class="filter-btn" data-kind="fish">Рыбные</button>
       <button class="filter-btn" data-kind="meat">Мясные</button>
@@ -178,8 +172,8 @@
     </div>
   </section>
 
-  <section id="dessert">
-    <h2>Десерты</h2>
+  <section id="desert">
+    <h2>Десерт</h2>
     <div class="filters">
       <button class="filter-btn" data-kind="small">Маленькая порция</button>
       <button class="filter-btn" data-kind="medium">Средняя порция</button>
@@ -193,7 +187,7 @@
 <div id="orderSummary">
 </div>
 
-  <footer>
+<footer>
     <div>
       <section id="contacts" class="contacts">
         <p>Позвонить нам <a href="tel:+79999999999">+7-999-999-99-99</a></p>
@@ -205,12 +199,11 @@
     <p id="notification-text"></p>
     <button id="notification-button">Ок</button>
   </div>
-</body>
 
 <div id="cart-panel" style="display:none; position:sticky; bottom:0; left:0; width:100%; background-color:#f0f0f0; padding:20px;">
   <p>Общая стоимость: <span id="cart-total">0₽</span></p>
   <a href="order.html" id="checkout-link">Перейти к оформлению</a>
 </div>
 
-
+</body>
 </html>

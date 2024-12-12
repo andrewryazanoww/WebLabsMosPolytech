@@ -1,0 +1,119 @@
+/* Стили для карточек блюд на странице заказа (order.html) */
+#orderedDishes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 20px; /* Отступы между карточками */
+}
+
+.ordered-dish {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;  /*  Отступы внутри карточки */
+    background-color: white;
+    border-radius: 35px; /*  Скругленные углы */
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13)); /*  Тень */
+    box-sizing: border-box; /*  Чтобы padding не увеличивал размер */
+}
+
+
+.ordered-dish img {
+    width: 100%;
+    height: auto; /* Фиксированная высота изображения - настройте по необходимости */
+    object-fit: cover;
+    border-radius: 35px 35px 0 0;
+    margin-bottom: 20px;
+
+}
+
+
+.ordered-dish p:nth-child(2), /* Цена */
+.ordered-dish p:nth-child(3),/* Блюдо */
+.ordered-dish p:nth-child(4){ /* Вес */
+    margin-bottom: 10px;
+}
+
+.ordered-dish p:nth-child(2) {
+    font-size: 25pt;
+}
+
+
+.ordered-dish p:nth-child(3) {
+    font-size: 20pt;
+}
+
+.ordered-dish p:nth-child(4){ /* Вес */
+    color: gray;
+}
+
+
+.ordered-dish button { /* Кнопка "Удалить" */
+    width: 100%;
+    margin-top: 10px; /* Отступ сверху */
+    padding: 10px 30px; /* Отступы внутри кнопки */
+    background-color: #f1eee9; /* Цвет фона кнопки */
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+
+.ordered-dish:hover {
+    border: 2px solid tomato;
+}
+
+.ordered-dish:hover button {
+    background-color: tomato; /* Цвет фона кнопки при наведении */
+}
+
+.ordered-dish button.remove-button{
+    background-color: #ff6348;
+    color: white;
+    border: none;
+}
+.ordered-dish button.remove-button:hover{
+    background-color: #e5533b;
+    color: white;
+}
+
+
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    #orderedDishes {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+    }
+}
+
+@media (max-width: 480px) {
+    #orderedDishes {
+        grid-template-columns: 1fr; /* 1 колонка на мобильных */
+    }
+
+    .ordered-dish img {
+        height: auto; /* Автоматическая высота изображения на мобильных */
+    }
+}
+
+.empty-order-message {
+    background-color: white; /* Белый фон */
+    color: black; /* Черный текст */
+    padding: 20px; /* Отступы */
+    border: 1px solid #ddd; /* Тонкая серая рамка */
+    border-radius: 5px; /* Скругленные углы */
+    text-align: center; /* Центрирование текста */
+
+}
+
+
+.empty-order-message a {
+    color: tomato; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.empty-order-message a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+.empty-order-message-href{
+    background-color: white;
+}

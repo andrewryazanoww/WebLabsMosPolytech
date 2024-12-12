@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="list_style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История заказов</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script defer src="order-functions.js"></script>
+</head>
+<body>
+
+<header>
+    <section id="choose" class="fast_travel">
+        <h1>FoodLand</h1>
+        <nav>
+            <h3>
+                <a href="../index.html">О нас</a>
+                <a href="../lunchmake/makelunch.html">Собрать ланч</a>
+                <a href='../lunchmake/order.html'>Текущий заказ</a>
+                <a href="#orders_list" id="active">Заказы</a>
+                <a href="#contacts">Контакты</a>
+            </h3>
+        </nav>
+    </section>
+</header>
+
+<div class="container mt-4">
+    <h1 class="mb-4">История заказов</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Дата оформления</th>
+                <th>Состав заказа</th>
+                <th>Стоимость</th>
+                <th>Время доставки</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody id="orderTableBody">
+            <!-- Таблица будет заполнена динамически через JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Модальные окна -->
+<div id="viewOrderModal" class="modal" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Просмотр заказа</h5>
+                <button type="button" class="btn-close">Закрыть</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Дата оформления:</strong> <span id="viewOrderDate"></span></p>
+                <p><strong>Состав заказа:</strong> <span id="viewOrderItems"></span></p>
+                <p><strong>Стоимость:</strong> <span id="viewOrderCost"></span></p>
+                <p><strong>Время доставки:</strong> <span id="viewOrderDeliveryTime"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="editOrderModal" class="modal" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Редактирование заказа</h5>
+                <button type="button" class="btn-close">Закрыть</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label>Дата оформления: <input type="text" id="editOrderDate"></label>
+                    <label>Состав заказа: <input type="text" id="editOrderItems"></label>
+                    <label>Стоимость: <input type="text" id="editOrderCost"></label>
+                    <label>Время доставки: <input type="text" id="editOrderDeliveryTime"></label>
+                    <button type="button" class="btn-secondary">Отмена</button>
+                    <button type="submit" class="btn-primary">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="deleteOrderModal" class="modal" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Удаление заказа</h5>
+                <button type="button" class="btn-close">Закрыть</button>
+            </div>
+            <div class="modal-body">
+                <p id="deleteConfirmationText"></p>
+                <button type="button" class="btn-secondary">Отмена</button>
+                <button id="confirmDeleteButton" type="button" class="btn-primary">Ок</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <section id="contacts" class="contacts">
+        <p>Позвонить нам <a href="tel:+79999999999">+7-999-999-99-99</a></p>
+    </section>
+</footer>
+
+</body>
+</html>
+
+

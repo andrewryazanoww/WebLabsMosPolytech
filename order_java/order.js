@@ -8,7 +8,7 @@ let order = {
 
 function addToOrder(dish) {
     order[dish.category] = dish;
-    updateOrderDisplay();
+    /*updateOrderDisplay();*/
 }
 
 function updateOrderDisplay() {

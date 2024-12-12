@@ -1,0 +1,319 @@
+/* Универсальный селектор: сброс всех отступов и базовая настройка шрифта */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Стили для основных секций: хедер, мейн и футер */
+header, main {
+    padding: 30px;
+    width: 100%;
+}
+
+footer {
+    padding: 20px 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+/* Стили для параграфов */
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12pt;
+    color: black;
+}
+
+/* Таблицы: стили для ячеек, заголовков и таблицы в целом */
+table, th, tr, td {
+    padding: 10px;
+    border: 2px solid tomato;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+
+/* Быстрая навигация: стили ссылок */
+.fast_travel a {
+    text-decoration: none;
+    font-size: 12pt;
+    color: black;
+    background-color: white;
+}
+
+/* Навигация: стили заголовка и ссылок */
+nav h3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+nav a {
+    margin: 0 auto;
+    transition: color 0.3s;
+    color: black;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ff6348;
+}
+
+/* Активная ссылка */
+#active {
+    color: tomato;
+}
+
+/* Стили для изображений в разделе "О нас" */
+.food {
+    width: 512px;
+    height: auto;
+}
+
+/* Контакты: стили для текста и ссылок */
+.contacts p, .contacts a {
+    background-color: black;
+    color: white;
+    height: 50px;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Медиазапросы: адаптация стилей для разных экранов */
+@media (max-width: 800px) {
+    .food {
+        width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        text-align: center;
+    }
+
+    nav h3 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 16pt;
+    }
+
+    .food {
+        width: 100%;
+    }
+
+    table {
+        font-size: calc(100% - 2px);
+    }
+}
+
+@media (max-width: 400px) {
+    table {
+        font-size: calc(100% - 4px);
+    }
+}
+
+
+/* Твой CSS */
+/* Основные стили для всего документа */
+:root {
+    --primary-color: tomato;
+    --text-color: #333;
+    --background-color: #f7f7f7;
+    --white: #fff;
+    --gray: #ddd;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: var(--background-color); */ /* Убираем цвет фона */
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Минимальная высота для прилипания футера*/
+}
+
+header {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+header nav {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+header nav h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+header nav h3 a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+header nav h3 a#active {
+    border-bottom: 2px solid var(--white);
+}
+
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    flex: 1; /* Позволяет контейнеру растягиваться */
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid var(--gray);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 700;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    margin: 0.5rem;
+}
+
+.btn-close, .btn-secondary {
+    background-color: var(--gray);
+    color: var(--text-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn:hover,
+.btn:focus,
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+    opacity: 0.9;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-dialog {
+    background-color: white;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.modal-body {
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+form input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 0.5rem;
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+}
+
+button[type="submit"], .btn-primary {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+button[type="submit"]:hover, .btn-primary:hover {
+    background-color: tomato;
+}
+
+button.btn-secondary {
+    background-color: var(--gray);
+    color: var(--text-color);
+    border: 1px solid var(--gray);
+}
+
+button.btn-secondary:hover {
+    background-color: #ccc;
+}

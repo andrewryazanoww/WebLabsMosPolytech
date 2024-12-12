@@ -387,3 +387,93 @@ button[type="reset"]:hover {
 #notification-button:hover {
     background-color: tomato;
 }
+
+#orderSummary {
+    display: flex !important;
+    justify-content: space-between !important; /* Размещение элементов по краям */
+    align-items: center !important; /* Вертикальное выравнивание */
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    z-index: 2; /* Обеспечивает отображение поверх других элементов */
+}
+
+#orderSummary p, #orderSummary a { /* Стили для текста и ссылки */
+    margin: 0; /* Убираем внешние отступы */
+    font-size: 30px;
+}
+
+#orderLink.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#orderSummary a {
+    background-color: transparent; /* Убираем фон */
+    color: #ff6348; /* Цвет ссылки - можно изменить */
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 5px 16px; /* Добавляем отступы */
+    border-radius: 4px; /* Скругление углов */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход */
+}
+
+#orderSummary a:hover {
+    background-color: rgba(255, 99, 72, 0.2); /* Фон при наведении */
+    color: tomato;
+
+}
+
+#orderLink.disabled{ /* Для неактивной ссылки */
+    background-color: #ccc;
+    color: #666;
+    cursor: default;
+}
+/* CSS для уведомлений*/
+#notification-text{
+    margin-bottom: 30px;
+    margin-top: 20px;
+    white-space: pre-line;
+}
+
+#notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    color: white;
+    text-align: center; /* Центрирование текста */
+}
+
+#notification.hidden {
+    display: none;
+}
+
+#notification-button {
+    /* Стили для кнопки */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Зеленый */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход */
+}
+#notification-button:hover {
+    background-color: #3e8e41; /* Более темный зеленый при наведении */
+}
+/* style.css */
+#notification {
+    max-width: 90%; /* Адаптивная ширина */
+    box-sizing: border-box;  /* Чтобы padding не увеличивал общую ширину */
+}
+
+body.noscroll { /* Новый стиль для body */
+    overflow: hidden; /* Отключаем прокрутку */
+}
