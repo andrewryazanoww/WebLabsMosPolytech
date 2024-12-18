@@ -13,6 +13,9 @@ function addToOrder(dish) {
 
 function updateOrderDisplay() {
     const orderSection = document.querySelector('.order-section');
+     if(!orderSection) {
+       return;
+    }
 
     const soupText = order.soup ? `${order.soup.name} ${order.soup.price}₽` : 'Блюдо не выбрано';
     const mainDishText = order["main-course"] ? `${order["main-course"].name} ${order["main-course"].price}₽` : 'Блюдо не выбрано';
@@ -116,8 +119,19 @@ function showNotification(message) {
         notification.classList.add('hidden');
     });
 }
-
-
+ function clearOrder(dishes) {
+    order = {
+        soup: null,
+        "main-course": null,
+        salad: null,
+        drink: null,
+        dessert: null
+    };
+    localStorage.removeItem('selectedDishes');
+     if(typeof updateOrderDisplay === 'function'){
+     updateOrderDisplay(dishes);
+    }
+}
 document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('form').addEventListener('submit', (event) => {

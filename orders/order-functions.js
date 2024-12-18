@@ -1,3 +1,4 @@
+// order-functions.js
 // Глобальные переменные для API (замените на ваши значения)
 const apiKey = '3ba95a0d-b29f-46d7-a3d8-4fe2e0b49866'; // Ваш API ключ
 const apiUrl = 'http://lab8-api.std-900.ist.mospolytech.ru/labs/api';
@@ -125,7 +126,7 @@ async function openOrderDetails(orderId) {
         const response = await fetch(`${apiUrl}/orders/${orderId}?api_key=${apiKey}`);
         if (!response.ok) throw new Error('Ошибка при получении данных заказа');
         const order = await response.json();
-
+        
         const dishesResponse = await fetch(`${apiUrl}/dishes?api_key=${apiKey}`);
         if (!dishesResponse.ok) throw new Error('Ошибка при получении данных блюд');
         const dishes = await dishesResponse.json();
@@ -331,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Обработчик для сохранения заказа
-    document.querySelector('#editOrderModal form').addEventListener('submit', (e) => {
+     document.querySelector('#editOrderModal form').addEventListener('submit', (e) => {
         e.preventDefault();
         submitEditedOrder();
     });

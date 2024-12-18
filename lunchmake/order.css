@@ -117,3 +117,13 @@
 .empty-order-message-href{
     background-color: white;
 }
+.orderFormSection {
+    margin-left: 25%;
+    margin-right: 20%;
+    margin-top: 2%;
+}
+.Form-name {
+    margin-left: 41%;
+    margin-right: 30%;
+    margin-top: 2%;
+}

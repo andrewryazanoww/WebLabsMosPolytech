@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const drinkSection = document.querySelector('#drinks .dishes');
     const saladSection = document.querySelector('#salad_starter .dishes');
     const desertSection = document.querySelector('#desert .dishes');
-    const resetButton = document.getElementById('resetButton');
     const apiUrl = 'https://edu.std-900.ist.mospolytech.ru/labs/api/dishes';
 
     try {
@@ -64,18 +63,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         });
 
-        resetButton.addEventListener('click', () => {
-            order = {
-                soup: null,
-                "main-course": null, //здесь main_dish
-                salad: null, //здесь salad_starter
-                drink: null,
-                dessert: null //здесь desert
-            };
-            updateOrderDisplay();
-
-        });
-
     } catch (error) {
         console.error("Ошибка при загрузке данных:", error);
     }
@@ -114,17 +101,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 function checkOrderAvailability() {
     const orderLink = document.getElementById('orderLink');
-    if (orderLink) { // Проверяем, существует ли элемент
-        if (checkOrder()) { // Вызываем checkOrder() из order.js
-            orderLink.classList.remove('disabled');
-        } else {
-            orderLink.classList.add('disabled');
-        }
-    }
-}
+     if (orderLink) { // Проверяем, существует ли элемент
+         if (checkOrder()) { // Вызываем checkOrder() из order.js
+             orderLink.classList.remove('disabled');
+         } else {
+             orderLink.classList.add('disabled');
+         }
+     }
+ }
+
 window.addEventListener('load', () => {
 
     // Восстанавливаем выбор блюд

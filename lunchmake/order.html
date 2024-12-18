@@ -1,101 +1,95 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="stylesheet" href="lunch.css">
-  <link rel="stylesheet" href="order.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="../order_java/order_page.js" defer></script>
-  <script src="../order_java/order.js"></script>
-  <script src="../order_java/dish_display.js"></script>
-  <title>Сайт</title>
-  <title>Оформление заказа</title>
+    <link rel="stylesheet" href="lunch.css">
+    <link rel="stylesheet" href="order.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../order_java/order_page.js" defer></script>
+    <script src="../order_java/order.js"></script>
+    <title>Сайт</title>
+    <title>Оформление заказа</title>
 </head>
 <body>
 <header>
-  <section id="choose" class="fast_travel">
-    <h1>FoodLand</h1>
-    <nav>
-      <h3>
-        <a href='../index.html'>О нас</a>
-        <a href='../lunchmake/makelunch.html'>Собрать ланч</a>
-        <a href="#order" id="active">Текущий заказ</a>
-        <a href='../orders/orders_list.html'>Заказы</a>
-        <a href='#contacts'>Контакты</a>
-      </h3>
-    </nav>
-  </section>
+    <section id="choose" class="fast_travel">
+        <h1>FoodLand</h1>
+        <nav>
+            <h3>
+                <a href='../index.html'>О нас</a>
+                <a href='../lunchmake/makelunch.html'>Собрать ланч</a>
+                <a href="#order" id="active">Текущий заказ</a>
+                <a href='../orders/orders_list.html'>Заказы</a>
+                <a href='#contacts'>Контакты</a>
+            </h3>
+        </nav>
+    </section>
 </header>
 
 <main>
-  <section id="orderComposition">
-    <h2>Состав заказа</h2>
-    <div id="orderedDishes"></div> <!---  Здесь будут отображаться блюда -->
-  </section>
-  <h2>Оформление заказа</h2>
-  <section id="orderFormSection">
+    <section id="orderComposition" >
+        <h2>Состав заказа</h2>
+        <div id="orderedDishes"></div> <!---  Здесь будут отображаться блюда -->
+    </section>
+    <h2 class="Form-name">Оформление заказа</h2>
+    <section id="orderFormSection" class="orderFormSection">
 
-    <form id="order-form" action="http://lab8-api.std-900.ist.mospolytech.ru/labs/api/orders" method="POST">
-      <div class="order-section">
+        <form id="order-form" action="http://lab8-api.std-900.ist.mospolytech.ru/labs/api/orders" method="POST">
+          <div id="order-details"> <!--- обертка для всей инфы по заказу-->
+                <h3>Ваш заказ</h3>
+                <p class="bold-text">Ничего не выбрано</p>
 
-        <div class="order-section" id="order-details">
-          <h3>Ваш заказ</h3>
-          <p class="bold-text">Ничего не выбрано</p>
+                <label for="comment" class="comment_from_java">Комментарий к заказу</label>
+                <textarea id="comment" name="comment" rows="4"></textarea>
+          </div>
 
-          <label for="comment">Комментарий к заказу</label>
-          <textarea id="comment" name="comment" rows="4"></textarea>
-        </div>
+            <!-- Блок с данными клиента -->
+            <div class="client-section">
+                <h3>Ваши данные</h3>
+                <label for="full_name">ФИО</label> <!---  Новое поле  -->
+                <input type="text" id="full_name" name="full_name" required>
 
-      </div>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" required>
 
-      <!-- Блок с данными клиента -->
-      <div class="client-section">
-        <h3>Ваши данные</h3>
-        <label for="full_name">ФИО</label> <!---  Новое поле  -->
-        <input type="text" id="full_name" name="full_name" required>
+                <label for="subscribe">
+                    <input type="checkbox" id="subscribe" name="subscribe" checked> Получать информацию о скидках и акциях
+                </label>
 
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" required>
+                <label for="phone">Номер телефона</label>
+                <input id="phone" type="tel" name="phone" required>
 
-        <label for="subscribe">
-          <input type="checkbox" id="subscribe" name="subscribe" checked> Получать информацию о скидках и акциях
-        </label>
+                <label for="delivery_address">Адрес доставки</label>
+                <input id="delivery_address" type="text" name="delivery_address" required>
+                <p class="delivery-note">Доставка осуществляется только по Москве</p>
 
-        <label for="phone">Номер телефона</label>
-        <input id="phone" type="tel" name="phone" required>
+                <label class="time_delivery">Время доставки:</label>
 
-        <label for="delivery_address">Адрес доставки</label>
-        <input id="delivery_address" type="text" name="delivery_address" required>
-        <p class="delivery-note">Доставка осуществляется только по Москве</p>
+                <label><input type="radio" name="delivery_type" value="now" required>Как можно скорее</label><br>
 
-        <label class="time_delivery">Время доставки:</label>
+                <label><input type="radio" name="delivery_type" value="by_time" required>К указанному времени</label><br>
 
-        <label><input type="radio" name="delivery_type" value="now" required>Как можно скорее</label><br>
+                <label for="delivery_time">Укажите время доставки</label>
+                <input id="delivery_time" type="time" name="delivery_time" min="07:00" max="23:00" step="300">
+                 <p class="delivery-note">Доступное время доставки с 7:00 до 23:00</p>
+            </div>
 
-        <label><input type="radio" name="delivery_type" value="by_time" required>К указанному времени</label><br>
-
-        <label for="delivery_time">Укажите время доставки</label>
-        <input id="delivery_time" type="time" name="delivery_time" min="07:00" max="23:00" step="300">
-        <p class="delivery-note">Доступное время доставки с 7:00 до 23:00</p>
-
-      </div>
-
-      <!-- Кнопки -->
-      <button type="reset" id="resetButton">Сбросить</button>
-      <button type="submit">Отправить</button>
-    </form>
-  </section>
+            <!-- Кнопки -->
+            <button type="reset" id="resetButton">Сбросить</button>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
 </main>
 
 <footer>
-  <div>
-    <section id="contacts" class="contacts">
-      <p>Позвонить нам <a href="tel:+79999999999">+7-999-999-99-99</a></p>
-    </section>
-  </div>
+    <div>
+        <section id="contacts" class="contacts">
+            <p>Позвонить нам <a href="tel:+79999999999">+7-999-999-99-99</a></p>
+        </section>
+    </div>
 </footer>
 
 </body>
