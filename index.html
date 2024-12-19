@@ -1,96 +1,283 @@
 <!DOCTYPE html>
-
 <html lang="ru">
-
 <head>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>FoodLand</title>
-</head>
+       <style>
+             /* Универсальный селектор: сброс всех отступов и базовая настройка шрифта */
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif; /* Шрифт Montserrat */
+        }
 
+        /* Стили для основных секций: хедер, мейн и футер */
+        header, main {
+            padding: 30px;
+            width: 100%;
+        }
+
+        footer {
+            padding: 20px 0;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        /* Стили для параграфов */
+        p {
+            font-family: 'Montserrat', sans-serif; /* Шрифт Montserrat */
+            font-size: 12pt;
+            color: black;
+        }
+
+        /* Таблицы: стили для ячеек, заголовков и таблицы в целом */
+        table, th, tr, td {
+            padding: 10px;
+            border: 2px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        /* Быстрая навигация: стили ссылок */
+        .fast_travel a {
+            text-decoration: none;
+            font-size: 12pt;
+            color: black;
+            background-color: white;
+        }
+
+        /* Навигация: стили заголовка и ссылок */
+        header {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+             background-color: tomato;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: left;
+             color: white;
+        }
+
+        header nav {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        header nav h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        header nav h3 a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            margin: 0.5rem;
+        }
+
+        header nav h3 a#active {
+            border-bottom: 2px solid white;
+        }
+
+        /* Активная ссылка */
+        #active {
+            color: white;
+        }
+
+        /* Стили для изображений в разделе "О нас" */
+        .food {
+            width: 512px;
+            height: auto;
+        }
+
+        /* Контакты: стили для текста и ссылок */
+        .contacts p, a {
+            background-color: black;
+            color: white;
+            height: 50px;
+            padding-top: 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Медиазапросы: адаптация стилей для разных экранов */
+
+        /* Для экранов ≤800px */
+        @media (max-width: 800px) {
+            .food {
+                width: 500px;
+            }
+        }
+
+        /* Для экранов ≤600px */
+        @media (max-width: 600px) {
+            h1 {
+                text-align: center;
+            }
+
+            nav h3 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                font-size: 16pt;
+            }
+
+            .food {
+                width: 100%;
+            }
+
+            table {
+                font-size: calc(100% - 2px);
+            }
+        }
+
+        /* Для экранов ≤400px */
+        @media (max-width: 400px) {
+            table {
+                font-size: calc(100% - 4px);
+            }
+        }
+    </style>
+</head>
 <body>
     <header>
-        <section id="choose" class="fast_travel">
-             <h1>FoodLand</h1>
-             <nav>
-                 <h3>
-                 <a href='#about_us' id="active">О нас</a>
-                 <a href='../lunchmake/makelunch.html'>Собрать ланч</a>
-                 <a href='../lunchmake/order.html'>Текущий заказ</a>
-                 <a href='../orders/orders_list.html'>Заказы</a>
-                 <a href='#contacts'>Контакты</a>
-                 </h3>
-             </nav>
-        </section>
-    </header>
+          <section id="choose" class="fast_travel">
+             <div class="container">
+                  <h1 class="display-4 fw-bold">FoodLand</h1>
+                     <nav>
+                       <h3 class="d-flex flex-wrap justify-content-center">
+                          <a href='#about_us' id="active">О нас</a>
+                           <a href='../lunchmake/makelunch.html'>Собрать ланч</a>
+                            <a href='../lunchmake/order.html'>Текущий заказ</a>
+                            <a href='../orders/orders_list.html'>Заказы</a>
+                           <a href='#contacts'>Контакты</a>
+                         </h3>
+                    </nav>
+                </div>
+            </section>
+      </header>
+<main class="container">
+        <section class="py-5 hero-section bg-light">
+             <div class="container">
+                <div class="row align-items-center">
+                 <div class="col-md-6">
+                         <h2 class="mt-3">О нас</h2>
+                         <p class="lead">FoodLand - это современная доставка вкуснейшей еды по Москве и МО по доступным ценам</p>
+                            <a href="../lunchmake/makelunch.html" class="btn btn-primary btn-lg">Собрать ланч</a>
+                    </div>
+                   <div class="col-md-6">
+                          <img src="images/food.jpg" alt="Еда в столовой" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+       </section>
 
-    <main>
-        <section id="about_us">
-            <img src="images/food.jpg" alt="Еда в столовой" class="food">
-            <h2>О нас</h2>
-            <p>FoodLand - это современная доставка вкуснейшей еды по Москве и МО по доступным ценам</p>
-        </section>
 
-        <section id="why_better">
-            <h2>Преимущества или что в нас особенного?</h2>
-            <ul>
-                <li>Быстрая доставка</li>
-                <li>Свежие продукты и высококачественные повары</li>
-                <li>Разнообразие блюд и напитков</li>
+        <section id="why_better" class="mt-5">
+            <h2 class="text-center mb-4">Преимущества или что в нас особенного?</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Быстрая доставка</li>
+                <li class="list-group-item">Свежие продукты и высококачественные повары</li>
+                 <li class="list-group-item">Разнообразие блюд и напитков</li>
             </ul>
         </section>
 
-        <section id="prices">
-            <h2>Самые популярные блюда у нас</h2>
-            <table>
-                <tr>
-                    <th></th>
-                    <th>Блюдо</th>
-                    <th>Кол-во заказов в месяц</th>
-                    <th>Цена</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Пицца Пепперони 35см</td>
-                    <td>540</td>
-                    <td>650Р</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Борщ</td>
-                    <td>500</td>
-                    <td>350Р</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Хинкали 6шт</td>
-                    <td>490</td>
-                    <td>500Р</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Салат цезарь</td>
-                    <td>470</td>
-                    <td>300Р</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Карбонара</td>
-                    <td>450</td>
-                    <td>400Р</td>
-                </tr>
-            </table>
+        <section id="prices" class="mt-5">
+             <h2 class="text-center mb-4">Самые популярные блюда у нас</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Блюдо</th>
+                        <th>Кол-во заказов в месяц</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
+                 <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Пицца Пепперони 35см</td>
+                        <td>540</td>
+                        <td>650Р</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Борщ</td>
+                        <td>500</td>
+                        <td>350Р</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                         <td>Хинкали 6шт</td>
+                         <td>490</td>
+                         <td>500Р</td>
+                    </tr>
+                    <tr>
+                         <td>4</td>
+                         <td>Салат цезарь</td>
+                        <td>470</td>
+                        <td>300Р</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                         <td>Карбонара</td>
+                         <td>450</td>
+                         <td>400Р</td>
+                     </tr>
+                </tbody>
+             </table>
         </section>
+     <section id="contact" class="mt-5 bg-light py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Связаться с нами</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Телефон:</strong> <a href="tel:+79999999999">+7-999-999-99-99</a></p>
+                        <p><strong>Email:</strong> example@mail.ru</p>
+                    </div>
+                    <div class="col-md-6">
+                      <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Ваше имя</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Ваш email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                              <div class="mb-3">
+                                <label for="message" class="form-label">Сообщение</label>
+                                <textarea class="form-control" id="message" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
-    <footer>
+     <footer class="bg-dark text-white py-3">
         <section id="contacts" class="contacts">
             <p>Позвонить нам <a href="tel:+79999999999">+7-999-999-99-99</a></p>
         </section>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
