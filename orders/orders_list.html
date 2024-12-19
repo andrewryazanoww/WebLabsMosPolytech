@@ -57,13 +57,21 @@
             </div>
             <div class="modal-body">
                 <p><strong>Дата оформления:</strong> <span id="viewOrderDate"></span></p>
+                <p><strong>Имя получателя:</strong> <span id="viewOrderFullName"></span></p>
+                <p><strong>Адрес доставки:</strong> <span id="viewOrderAddress"></span></p>
+                 <p><strong>Тип доставки:</strong> <span id="viewOrderDeliveryType"></span></p>
+                <p><strong>Время доставки:</strong> <span id="viewOrderDeliveryTime"></span></p>
+                 <p><strong>Телефон:</strong> <span id="viewOrderPhone"></span></p>
+                <p><strong>Email:</strong> <span id="viewOrderEmail"></span></p>
+                <p><strong>Комментарий к заказу:</strong> <span id="viewOrderComment"></span></p>
                 <p><strong>Состав заказа:</strong> <span id="viewOrderItems"></span></p>
                 <p><strong>Стоимость:</strong> <span id="viewOrderCost"></span></p>
-                <p><strong>Время доставки:</strong> <span id="viewOrderDeliveryTime"></span></p>
+
             </div>
         </div>
     </div>
 </div>
+
 
 <div id="editOrderModal" class="modal" style="display:none;">
     <div class="modal-dialog">
@@ -74,11 +82,25 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <label>Дата оформления: <input type="text" id="editOrderDate"></label>
-                    <label>Состав заказа: <input type="text" id="editOrderItems"></label>
-                    <label>Стоимость: <input type="text" id="editOrderCost"></label>
-                    <label>Время доставки: <input type="text" id="editOrderDeliveryTime"></label>
-                    <button type="button" class="btn-secondary">Отмена</button>
+                     <label for="full_name">Имя получателя</label>
+                    <input type="text" id="editOrderFullName" name="full_name" class="form-control">
+                       <label for="delivery_address">Адрес доставки</label>
+                     <input type="text" id="editOrderAddress" name="delivery_address" class="form-control">
+                        <label>Тип доставки:</label>
+                    <label><input type="radio" name="delivery_type" value="now" required>Как можно скорее</label><br>
+                    <label><input type="radio" name="delivery_type" value="by_time" required>Ко времени</label><br>
+                    <label for="delivery_time">Время доставки</label>
+                        <input id="editOrderDeliveryTime" type="time" name="delivery_time" class="form-control">
+                         <label for="phone">Телефон</label>
+                     <input type="tel" id="editOrderPhone" name="phone" class="form-control">
+                        <label for="email">Email</label>
+                      <input type="email" id="editOrderEmail" name="email" class="form-control">
+                    <label for="comment">Комментарий:</label>
+                    <textarea id="editOrderComment" name="comment" rows="3" class="form-control"></textarea>
+
+                    <!-- Выпадающие списки блюд будут здесь -->
+
+                     <button type="button" class="btn-secondary">Отмена</button>
                     <button type="submit" class="btn-primary">Сохранить</button>
                 </form>
             </div>
@@ -110,5 +132,3 @@
 
 </body>
 </html>
-
-

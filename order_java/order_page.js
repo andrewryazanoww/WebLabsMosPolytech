@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (selectedDishesIds.length === 0) {
         const emptyOrderMessage = document.createElement('div');
         emptyOrderMessage.className = 'empty-order-message';
-        emptyOrderMessage.innerHTML = '<p>Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на <a href ="../lunchmake/makelunch.html" class="empty-order-message-href">страницу "Собрать ланч"</a>.</p>';
+        emptyOrderMessage.innerHTML = '<p>Ничего не выбрано. Чтобы добавить блюда в заказ, <br> перейдите на страницу <br> <br> <a href ="../lunchmake/makelunch.html" class="empty-order-message-href">"Собрать ланч"</a>.</p>';
         orderedDishesContainer.appendChild(emptyOrderMessage);
     } else {
         try {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                         dishElement.querySelector('.remove-button').addEventListener('click', () => {
                             removeDishFromOrder(dish.id, dishElement, orderForm, dishes);
-                            updateOrderDisplay(dishes); // Обновление отображения заказа после удаления блюда
+                            updateOrderDisplay(dishes);
                         });
                     }
                 });
@@ -132,19 +132,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 });
                 if (resetButton) {
-                   resetButton.addEventListener('click', () => {
-                        clearOrder(dishes); // Передаём dishes в clearOrder
-                        orderedDishesContainer.innerHTML = '';
+                     resetButton.addEventListener('click', () => {
+                        clearOrder(dishes);
+                         orderedDishesContainer.innerHTML = '';
                         const emptyOrderMessage = document.createElement('div');
                         emptyOrderMessage.className = 'empty-order-message';
-                        emptyOrderMessage.innerHTML = '<p>Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на <a href ="../lunchmake/makelunch.html" class="empty-order-message-href">страницу "Собрать ланч"</a>.</p>';
+                        emptyOrderMessage.innerHTML = '<p>Ничего не выбрано. Чтобы добавить блюда в заказ, <br> перейдите на страницу <a href ="../lunchmake/makelunch.html" class="empty-order-message-href">"Собрать ланч"</a>.</p>';
                         orderedDishesContainer.appendChild(emptyOrderMessage);
                         orderForm.reset();
-                        updateOrderDisplay(dishes); // Передаём dishes в updateOrderDisplay
+                        updateOrderDisplay(dishes);
                     });
                 } else {
                     console.error("Элемент с id 'reset-button' не найден");
                 }
+
 
             } else {
                 console.error("Один из элементов 'orderedDishesContainer', 'orderForm' или dishes не найден");

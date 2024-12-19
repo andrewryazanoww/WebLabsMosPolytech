@@ -126,16 +126,22 @@ async function openOrderDetails(orderId) {
         const response = await fetch(`${apiUrl}/orders/${orderId}?api_key=${apiKey}`);
         if (!response.ok) throw new Error('Ошибка при получении данных заказа');
         const order = await response.json();
-        
+
         const dishesResponse = await fetch(`${apiUrl}/dishes?api_key=${apiKey}`);
         if (!dishesResponse.ok) throw new Error('Ошибка при получении данных блюд');
         const dishes = await dishesResponse.json();
-
+    
         document.getElementById('viewOrderDate').textContent = formatOrderDate(order.created_at);
+        document.getElementById('viewOrderFullName').textContent = order.full_name;
+        document.getElementById('viewOrderAddress').textContent = order.delivery_address;
+        document.getElementById('viewOrderDeliveryType').textContent = order.delivery_type === 'now' ? 'Как можно скорее' : 'Ко времени';
+        document.getElementById('viewOrderDeliveryTime').textContent = order.delivery_type === 'now' ? 'В течение дня (с 7:00 до 23:00)' : order.delivery_time;
+           document.getElementById('viewOrderPhone').textContent = order.phone;
+        document.getElementById('viewOrderEmail').textContent = order.email;
+        document.getElementById('viewOrderComment').textContent = order.comment;
         document.getElementById('viewOrderItems').textContent = formatOrderItems(order, dishes);
         document.getElementById('viewOrderCost').textContent = calculateOrderTotal(order, dishes) + '₽';
-        document.getElementById('viewOrderDeliveryTime').textContent = order.delivery_type === 'now' ? 'В течение дня (с 7:00 до 23:00)' : order.delivery_time;
-
+    
         showModal('viewOrderModal');
     } catch (error) {
         console.error('Ошибка при загрузке данных заказа:', error);
@@ -158,6 +164,23 @@ async function openEditOrderForm(orderId) {
         const form = document.querySelector('#editOrderModal form');
          form.dataset.orderId = orderId;
 
+
+        form.querySelector('#editOrderFullName').value = order.full_name;
+        form.querySelector('#editOrderAddress').value = order.delivery_address;
+        form.querySelector('#editOrderPhone').value = order.phone;
+        form.querySelector('#editOrderEmail').value = order.email;
+        form.querySelector('#editOrderComment').value = order.comment;
+        
+        if (order.delivery_type === 'by_time'){
+          form.querySelector('input[name="delivery_type"][value="by_time"]').checked = true
+          form.querySelector('#editOrderDeliveryTime').value = order.delivery_time ? order.delivery_time.slice(0, 5) : '';
+        } else {
+             form.querySelector('input[name="delivery_type"][value="now"]').checked = true;
+            form.querySelector('#editOrderDeliveryTime').disabled = true
+             form.querySelector('#editOrderDeliveryTime').value = '';
+          }
+
+
            // Создаем выпадающие списки для выбора блюд
         const dishTypes = [
             { id: 'soup_id', label: 'Суп' },
@@ -167,7 +190,7 @@ async function openEditOrderForm(orderId) {
             { id: 'dessert_id', label: 'Десерт' }
         ];
         
-        dishTypes.forEach(type => {
+         dishTypes.forEach(type => {
             const select = document.createElement('select');
             select.name = type.id;
              select.classList.add('form-control');
@@ -186,22 +209,17 @@ async function openEditOrderForm(orderId) {
               }
               select.appendChild(option);
             });
-           
+            const existingLabel = form.querySelector(`label[for="${type.id}"]`);
+             if (existingLabel) {
+                  form.removeChild(existingLabel);
+              }
             const label = document.createElement('label');
+             label.setAttribute('for', type.id);
             label.textContent = `${type.label}:`;
-            form.appendChild(label);
-            form.appendChild(select);
-        });
-    
-    
-         // Приводим время в нужный формат
-        const time = order.delivery_time ? order.delivery_time.slice(0, 5) : '';
-
-        // Заполняем форму данными
-          form.querySelector('#editOrderDate').value = formatOrderDate(order.created_at);
-        form.querySelector('#editOrderDeliveryTime').value = time;
-
-
+            form.insertBefore(label, form.querySelector('button[type="submit"]'));
+            form.insertBefore(select, form.querySelector('button[type="submit"]'));
+          });
+          
         showModal('editOrderModal');
     } catch (error) {
         console.error('Ошибка при загрузке данных заказа:', error);
@@ -214,10 +232,8 @@ async function submitEditedOrder() {
    try {
         const form = document.querySelector('#editOrderModal form');
         const orderId = form.dataset.orderId;
-    
-        const formData = new FormData(form);
-    
-        // Создаем объект с данными
+       const formData = new FormData(form);
+
         const updatedOrder = {
             full_name: formData.get('full_name'),
             delivery_address: formData.get('delivery_address'),
@@ -233,7 +249,7 @@ async function submitEditedOrder() {
             dessert_id: formData.get('dessert_id') || null
         };
        console.log('Данные для отправки:', updatedOrder);
-    
+
         const response = await fetch(`${apiUrl}/orders/${orderId}?api_key=${apiKey}`, {
             method: 'PUT',
             headers: {
@@ -241,14 +257,25 @@ async function submitEditedOrder() {
             },
             body: JSON.stringify(updatedOrder)
         });
-    
+
         if (!response.ok) {
             const errorData = await response.json();
             throw new Error(errorData.error || 'Ошибка при сохранении заказа');
         }
-        showNotification('Заказ успешно обновлен', 'success');
-        closeModal('editOrderModal');
-        fetchAndDisplayOrders();
+          showNotification('Заказ успешно обновлен', 'success');
+            closeModal('editOrderModal');
+             fetchAndDisplayOrders();
+
+             const updatedOrderResponse = await fetch(`${apiUrl}/orders/${orderId}?api_key=${apiKey}`);
+             if (!updatedOrderResponse.ok) throw new Error('Ошибка при получении данных заказа');
+               const updatedOrderData = await updatedOrderResponse.json();
+
+            const dishesResponse = await fetch(`${apiUrl}/dishes?api_key=${apiKey}`);
+        if (!dishesResponse.ok) throw new Error('Ошибка при получении данных блюд');
+        const dishes = await dishesResponse.json();
+
+            openOrderDetails(orderId);
+       
     } catch (error) {
         console.error('Ошибка при сохранении заказа:', error);
         showNotification('Ошибка при сохранении заказа: ' + error.message, 'error');
@@ -348,25 +375,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('#editOrderModal .btn-secondary').forEach(button => {
         button.addEventListener('click', () => closeModal('editOrderModal'));
     });
-   
-    // Обработчик изменения типа доставки
+      // Обработчик изменения типа доставки
     const deliveryTypeInputs = document.querySelectorAll('#editOrderModal input[name="delivery_type"]');
     const timeInput = document.querySelector('#editOrderModal input[name="delivery_time"]');
-    
+
     deliveryTypeInputs.forEach(input => {
         input.addEventListener('change', () => {
             timeInput.disabled = input.value !== 'by_time';
             if (input.value === 'by_time') {
                 timeInput.required = true;
-                if (!timeInput.value) {
-                    timeInput.value = '12:00';
-                }
+                 if (!timeInput.value) {
+                   timeInput.value = '12:00';
+                 }
+
             } else {
                 timeInput.required = false;
                 timeInput.value = '';
             }
         });
     });
+
 });
 
 
