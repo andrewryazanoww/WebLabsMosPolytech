@@ -217,7 +217,7 @@ async function openEditOrderForm(orderId) {
     }
 }
 
-// Функция для сохранения изменений заказа
+
 async function submitEditedOrder() {
    try {
         const form = document.querySelector('#editOrderModal form');

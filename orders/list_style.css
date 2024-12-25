@@ -138,7 +138,7 @@ body {
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Минимальная высота для прилипания футера*/
+    min-height: 100vh; 
 }
 
 header {

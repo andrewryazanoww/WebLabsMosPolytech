@@ -73,7 +73,7 @@ function checkOrder() {
     if (!hasSoup && !hasMainDish && !hasSaladStarter && !hasDrink && !hasDesert) {
         showNotification("Ничего не выбрано. Выберите блюда для заказа");
         return false;
-    } else if (hasSoup && !hasMainDish && !hasSaladStarter && !hasDrink) { // Только суп - ошибка
+    } else if (hasSoup && !hasMainDish && !hasSaladStarter && !hasDrink) { 
         showNotification("Выберите главное блюдо/салат/стартер и напиток");
         return false;
     } else if (hasSaladStarter && !hasSoup && !hasMainDish && !hasDrink) { // Только салат/стартер - ошибка

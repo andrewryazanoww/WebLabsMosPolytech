@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const apiUrl = 'https://edu.std-900.ist.mospolytech.ru/labs/api/dishes';
     let dishes;
     const selectedDishesIds = JSON.parse(localStorage.getItem('selectedDishes')) || [];
-
+//
     if (selectedDishesIds.length === 0) {
         displayEmptyOrderMessage(orderedDishesContainer);
     } else {
