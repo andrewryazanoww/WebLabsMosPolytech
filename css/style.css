@@ -19,17 +19,25 @@ body {
 
 /* Дополнительные стили, если нужны */
 .hero-section {
-    padding: 5rem 0; /* Увеличен отступ для hero-section */
+    padding: 5rem 0;
 }
 
 .hero-section .container {
     max-width: 90%;
 }
-
-/* Стили для основных секций: хедер, мейн и футер */
-header, main {
-    padding: 30px;
-    width: 100%;
+header nav h3 a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    transition: color 0.3s;
+}
+header nav h3 a:hover {
+    color: lightgrey;
+}
+header nav h3 a#active {
+    border-bottom: 2px solid white;
+    color: lightgrey;
 }
 
 footer {

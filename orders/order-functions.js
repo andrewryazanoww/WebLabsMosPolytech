@@ -151,6 +151,7 @@ async function openOrderDetails(orderId) {
 
 
 // Функция для открытия модального окна редактирования заказа
+// Функция для открытия модального окна редактирования заказа
 async function openEditOrderForm(orderId) {
     try {
         const response = await fetch(`${apiUrl}/orders/${orderId}?api_key=${apiKey}`);
@@ -162,8 +163,7 @@ async function openEditOrderForm(orderId) {
         const dishes = await dishesResponse.json();
         
         const form = document.querySelector('#editOrderModal form');
-         form.dataset.orderId = orderId;
-
+        form.dataset.orderId = orderId;
 
         form.querySelector('#editOrderFullName').value = order.full_name;
         form.querySelector('#editOrderAddress').value = order.delivery_address;
@@ -180,8 +180,7 @@ async function openEditOrderForm(orderId) {
              form.querySelector('#editOrderDeliveryTime').value = '';
           }
 
-
-           // Создаем выпадающие списки для выбора блюд
+           // Создаем текстовые поля для отображения блюд
         const dishTypes = [
             { id: 'soup_id', label: 'Суп' },
             { id: 'main_course_id', label: 'Основное блюдо' },
@@ -190,35 +189,26 @@ async function openEditOrderForm(orderId) {
             { id: 'dessert_id', label: 'Десерт' }
         ];
         
-         dishTypes.forEach(type => {
-            const select = document.createElement('select');
-            select.name = type.id;
-             select.classList.add('form-control');
-           
-            const defaultOption = document.createElement('option');
-            defaultOption.value = '';
-            defaultOption.text = `Выберите ${type.label}`;
-            select.appendChild(defaultOption);
-           
-            dishes.forEach(dish => {
-              const option = document.createElement('option');
-              option.value = dish.id;
-              option.text = `${dish.name} (${dish.price}₽)`;
-              if (order[type.id] == dish.id) {
-                option.selected = true;
-              }
-              select.appendChild(option);
-            });
-            const existingLabel = form.querySelector(`label[for="${type.id}"]`);
+        dishTypes.forEach(type => {
+                const dish = dishes.find(d => d.id === order[type.id]);
+                const dishName = dish ? dish.name : 'Не выбрано';
+                  const existingLabel = form.querySelector(`label[for="${type.id}"]`);
              if (existingLabel) {
                   form.removeChild(existingLabel);
               }
-            const label = document.createElement('label');
-             label.setAttribute('for', type.id);
-            label.textContent = `${type.label}:`;
-            form.insertBefore(label, form.querySelector('button[type="submit"]'));
-            form.insertBefore(select, form.querySelector('button[type="submit"]'));
-          });
+                 const label = document.createElement('label');
+                 label.setAttribute('for', type.id);
+                 label.textContent = `${type.label}:`;
+
+             const input = document.createElement('input');
+             input.type = 'text';
+             input.name = type.id;
+             input.value = dishName;
+              input.classList.add('form-control');
+             input.readOnly = true;
+             form.insertBefore(label, form.querySelector('button[type="submit"]'));
+             form.insertBefore(input, form.querySelector('button[type="submit"]'));
+        });
           
         showModal('editOrderModal');
     } catch (error) {

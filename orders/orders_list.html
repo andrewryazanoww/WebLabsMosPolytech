@@ -47,7 +47,7 @@
     </table>
 </div>
 
-<!-- Модальные окна -->
+<!-- Модальное окно просмотра заказа -->
 <div id="viewOrderModal" class="modal" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -72,7 +72,7 @@
     </div>
 </div>
 
-
+<!-- Модальное окно редактирования заказа -->
 <div id="editOrderModal" class="modal" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -82,25 +82,24 @@
             </div>
             <div class="modal-body">
                 <form>
-                     <label for="full_name">Имя получателя</label>
+                    <label for="full_name">Имя получателя</label>
                     <input type="text" id="editOrderFullName" name="full_name" class="form-control">
-                       <label for="delivery_address">Адрес доставки</label>
-                     <input type="text" id="editOrderAddress" name="delivery_address" class="form-control">
-                        <label>Тип доставки:</label>
+                    <label for="delivery_address">Адрес доставки</label>
+                    <input type="text" id="editOrderAddress" name="delivery_address" class="form-control">
+                    <label>Тип доставки:</label>
                     <label><input type="radio" name="delivery_type" value="now" required>Как можно скорее</label><br>
                     <label><input type="radio" name="delivery_type" value="by_time" required>Ко времени</label><br>
-                    <label for="delivery_time">Время доставки</label>
-                        <input id="editOrderDeliveryTime" type="time" name="delivery_time" class="form-control">
-                         <label for="phone">Телефон</label>
+                     <label for="delivery_time">Время доставки</label>
+                     <input id="editOrderDeliveryTime" type="time" name="delivery_time" class="form-control">
+                     <label for="phone">Телефон</label>
                      <input type="tel" id="editOrderPhone" name="phone" class="form-control">
-                        <label for="email">Email</label>
-                      <input type="email" id="editOrderEmail" name="email" class="form-control">
-                    <label for="comment">Комментарий:</label>
-                    <textarea id="editOrderComment" name="comment" rows="3" class="form-control"></textarea>
+                     <label for="email">Email</label>
+                     <input type="email" id="editOrderEmail" name="email" class="form-control">
+                     <label for="comment">Комментарий:</label>
+                     <textarea id="editOrderComment" name="comment" rows="3" class="form-control"></textarea>
+                    <!-- Здесь будут текстовые поля для блюд -->
 
-                    <!-- Выпадающие списки блюд будут здесь -->
-
-                     <button type="button" class="btn-secondary">Отмена</button>
+                    <button type="button" class="btn-secondary">Отмена</button>
                     <button type="submit" class="btn-primary">Сохранить</button>
                 </form>
             </div>
@@ -108,6 +107,7 @@
     </div>
 </div>
 
+<!-- Модальное окно удаления заказа -->
 <div id="deleteOrderModal" class="modal" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-content">

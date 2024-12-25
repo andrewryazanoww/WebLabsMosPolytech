@@ -102,9 +102,10 @@
     border: 1px solid #ddd; /* Тонкая серая рамка */
     border-radius: 5px; /* Скругленные углы */
     text-align: center; /* Центрирование текста */
-
 }
-
+.empty-order-message p {
+    margin-bottom: 10px;
+}
 
 .empty-order-message a {
     color: tomato; /* Цвет ссылки */
